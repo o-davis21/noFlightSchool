@@ -149,6 +149,10 @@ p code {
     border: 1px solid #00ffcc;
 }
 
+fieldset {
+    border-color: #00ffcc;
+    border-style: solid;
+}
 
 footer {
     text-align: center;
