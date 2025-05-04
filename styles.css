@@ -22,6 +22,11 @@ a {
   padding: 1rem;
 }
 
+fieldset {
+      border-color: #00ffcc;
+      border-style: solid;
+}
+
 header {
   border-bottom: 2px solid #00ffcc;
   padding: 1rem 0;
