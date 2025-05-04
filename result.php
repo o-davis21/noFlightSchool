@@ -40,8 +40,8 @@
     <div>
         <?php
             echo "<br>Your Score Is";
-            echo ($score == '')? '.': ": $score.";
-            echo "</div>";
+            echo ($score == '')? '.': ": $score";
+            echo "/6 </div>";
         ?>
 
 </main>
