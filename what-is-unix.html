@@ -1,80 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>What is UNIX?</title>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What is UNIX?</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="header-flex">
-                <h1>noFlightSchool</h1>
-                <button class="nav-toggle" aria-label="toggle navigation">&#9776;</button>
-            </div>
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="what-is-unix.html">What is UNIX</a></li>
-                    <li><a href="getting-started.html">Getting Started</a></li>
-                    <li><a href="web-hosting.html">Web Hosting</a></li>
-                    <li><a href="#">Tutorials</a></li>
-                    <li><a href="#">Quizzes</a></li>
-                    <li><a href="#">Leaderboard</a></li>
-                </ul>
-            </nav>
+      <div class="container">
+        <div class="header-flex">
+          <h1>noFlightSchool</h1>
+          <button class="nav-toggle" aria-label="toggle navigation">
+            &#9776;
+          </button>
         </div>
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="what-is-unix.html">What is UNIX</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="web-hosting.html">Web Hosting</a></li>
+            <li><a href="tutorial.html">Tutorials</a></li>
+            <li><a href="quiz.html">Quizzes</a></li>
+            <li><a href="#">Leaderboard</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="container">
-        <h2>What is UNIX?</h2>
-        <p>UNIX is a powerful, multiuser operating system that has influenced modern computing since its inception. It provides a stable, secure, and efficient environment for software development, web hosting, and system administration. This guide explores the history, architecture, and practical usage of UNIX, especially in web development, to offer beginners a foundational understanding.</p>
+      <h2>What is UNIX?</h2>
+      <p>
+        UNIX is a powerful, multiuser operating system that has influenced
+        modern computing since its inception. It provides a stable, secure, and
+        efficient environment for software development, web hosting, and system
+        administration. This guide explores the history, architecture, and
+        practical usage of UNIX, especially in web development, to offer
+        beginners a foundational understanding.
+      </p>
 
-        <h3>History of UNIX</h3>
-        <p>UNIX originated in the late 1960s at AT&T's Bell Labs. It was developed by Ken Thompson, Dennis Ritchie, and others who needed a flexible, portable operating system that could run on different hardware platforms.</p>
+      <h3>History of UNIX</h3>
+      <p>
+        UNIX originated in the late 1960s at AT&T's Bell Labs. It was developed
+        by Ken Thompson, Dennis Ritchie, and others who needed a flexible,
+        portable operating system that could run on different hardware
+        platforms.
+      </p>
 
-        <div class="card">
-            <h4>Timeline:</h4>
-            <ul>
-            <li><strong>1969:</strong> Ken Thompson and Dennis Ritchie begin working on UNIX on a PDP-7.</li>
-            <li><strong>1971:</strong> The first official version of UNIX was released.</li>
-            <li><strong>1973:</strong> UNIX rewritten in C, enhancing its portability.</li>
-            <li><strong>Late 1970s–80s:</strong> Variants like BSD (Berkeley Software Distribution) and System V emerged.</li>
-            <li><strong>1990s–Present:</strong> UNIX-inspired systems like Linux and macOS dominate modern computing.</li>
-            </ul>
-            <p>UNIX’s open-source philosophy led to many distributions, making it one of the most influential operating systems in history.</p>
-        </div>
+      <div class="card">
+        <h4>Timeline:</h4>
+        <ul>
+          <li>
+            <strong>1969:</strong> Ken Thompson and Dennis Ritchie begin working
+            on UNIX on a PDP-7.
+          </li>
+          <li>
+            <strong>1971:</strong> The first official version of UNIX was
+            released.
+          </li>
+          <li>
+            <strong>1973:</strong> UNIX rewritten in C, enhancing its
+            portability.
+          </li>
+          <li>
+            <strong>Late 1970s–80s:</strong> Variants like BSD (Berkeley
+            Software Distribution) and System V emerged.
+          </li>
+          <li>
+            <strong>1990s–Present:</strong> UNIX-inspired systems like Linux and
+            macOS dominate modern computing.
+          </li>
+        </ul>
+        <p>
+          UNIX’s open-source philosophy led to many distributions, making it one
+          of the most influential operating systems in history.
+        </p>
+      </div>
 
-        <h3>UNIX Architecture</h3>
-        <div class="card">
-            <p>UNIX is built on the philosophy of “Everything is a file,” making it highly modular and adaptable. Its architecture includes the following core features:</p>
-            <ul>
-            <li><strong>Multiuser & Multitasking:</strong> Supports multiple users simultaneously with isolated environments.</li>
-            <li><strong>File System Hierarchy:</strong> Organizes files in a tree-like structure starting from the root directory. <code>/</code></li>
-            <li><strong>Shell & CLI:</strong> Uses shell interpreters to execute commands with: <code>bash</code> <code>zsh</code> <code>sh</code></li>
-            <li><strong>Pipelines & Redirections:</strong> Enables chaining commands using <code>|</code> and redirecting output with <code>&gt; and &lt;</code></li>
-            <li><strong>Permissions & Security:</strong> Permission access can be controlled for users and groups using: <code>read: r</code><code>write: w</code><code>execute: x</code></li>
-            <li><strong>Process Management:</strong> Tools allow users to manage running processes. Here are some examples: <code>ps</code><code>kill</code><code>top</code></li>
-            </ul>
-        </div>
+      <h3>UNIX Architecture</h3>
+      <div class="card">
+        <p>
+          UNIX is built on the philosophy of “Everything is a file,” making it
+          highly modular and adaptable. Its architecture includes the following
+          core features:
+        </p>
+        <ul>
+          <li>
+            <strong>Multiuser & Multitasking:</strong> Supports multiple users
+            simultaneously with isolated environments.
+          </li>
+          <li>
+            <strong>File System Hierarchy:</strong> Organizes files in a
+            tree-like structure starting from the root directory. <code>/</code>
+          </li>
+          <li>
+            <strong>Shell & CLI:</strong> Uses shell interpreters to execute
+            commands with: <code>bash</code> <code>zsh</code> <code>sh</code>
+          </li>
+          <li>
+            <strong>Pipelines & Redirections:</strong> Enables chaining commands
+            using <code>|</code> and redirecting output with
+            <code>&gt; and &lt;</code>
+          </li>
+          <li>
+            <strong>Permissions & Security:</strong> Permission access can be
+            controlled for users and groups using: <code>read: r</code
+            ><code>write: w</code><code>execute: x</code>
+          </li>
+          <li>
+            <strong>Process Management:</strong> Tools allow users to manage
+            running processes. Here are some examples: <code>ps</code
+            ><code>kill</code><code>top</code>
+          </li>
+        </ul>
+      </div>
 
-        <h3>Why UNIX is Important Today</h3>
-        <p>UNIX and other systems like Linux and macOS are the backbone of modern computing from web servers and smartphones to cloud platforms and embedded systems. Unix's simplicity, portability, and security make it perfect for developers and admins.</p>
+      <h3>Why UNIX is Important Today</h3>
+      <p>
+        UNIX and other systems like Linux and macOS are the backbone of modern
+        computing from web servers and smartphones to cloud platforms and
+        embedded systems. Unix's simplicity, portability, and security make it
+        perfect for developers and admins.
+      </p>
     </main>
 
     <footer>
-        <div class="container">
-            <p>© 2025 ISTE 240.04 Group 2. All rights reserved.</p>
-        </div>
+      <div class="container">
+        <p>© 2025 ISTE 240.04 Group 2. All rights reserved.</p>
+      </div>
     </footer>
 
     <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('show');
-        });
+      const navToggle = document.querySelector(".nav-toggle");
+      const navLinks = document.querySelector(".nav-links");
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -167,6 +167,75 @@ footer {
     border: none;
     cursor: pointer;
 }
+
+/* Additional styles specific to the command practice box */
+.command-box {
+    border: 2px solid #00ffcc;
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #001c26;
+  }
+  
+  .command-input {
+    display: flex;
+    margin-bottom: 1rem;
+  }
+  
+  .command-input input {
+    flex-grow: 1;
+    background-color: #0e1e2a;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    font-family: intel;
+    padding: 0.5rem;
+    outline: none;
+  }
+  
+  .command-button {
+    background-color: transparent;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    padding: 0.5rem 1rem;
+    font-family: intel;
+    cursor: pointer;
+    margin-left: 0.5rem;
+  }
+  
+  .command-output {
+    background-color: #0e1e2a;
+    border: 2px solid #00ffcc;
+    color: #00ffcc;
+    font-family: intel;
+    padding: 1rem;
+    min-height: 100px;
+    margin-bottom: 1rem;
+    white-space: pre-wrap;
+  }
+  
+  .command-hint {
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    color: #00ffcc;
+  }
+  
+  .directory {
+    color: #00ccff;
+  }
+  
+  .file {
+    color: #ffffff;
+  }
+  
+  .prompt {
+    color: #00ffcc;
+    margin-right: 5px;
+  }
+  
+  code {
+    background-color: #001c26;
+    padding: 0.1rem 0.3rem;
+    border-radius: 3px;
+  }
   
 /* Responsive Design */
 @media (max-width: 768px) {
