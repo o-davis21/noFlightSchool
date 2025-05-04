@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unix Command Practice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-flex">
+          <h1>noFlightSchool</h1>
+          <button class="nav-toggle" aria-label="toggle navigation">
+            &#9776;
+          </button>
+        </div>
+        <nav class="nav">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="what-is-unix.html">What is UNIX</a></li>
+            <li><a href="getting-started.html">Getting Started</a></li>
+            <li><a href="web-hosting.html">Web Hosting</a></li>
+            <li><a href="tutorial.html">Tutorials</a></li>
+            <li><a href="quiz.html">Quizzes</a></li>
+            <li><a href="#">Leaderboard</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="card">
+        <h3>Try Unix Commands</h3>
+        <p>
+          Type commands below to see how they would work in a Unix terminal.
+        </p>
+
+        <div class="command-box">
+          <div class="command-input">
+            <input
+              type="text"
+              id="command-text"
+              placeholder="Type a command (e.g., ls, pwd, mkdir folder)"
+            />
+            <button class="command-button" id="run-command">Run</button>
+          </div>
+
+          <div class="command-output" id="output-area">
+            # Output will appear here after you run a command
+          </div>
+
+          <div class="command-hint" id="hint-area">
+            Tip: Start with simple commands like <code>ls</code>
+            <code>pwd</code> <code>echo Hello</code>
+          </div>
+        </div>
+
+        <div class="card">
+          <h4>Common Unix Commands</h4>
+          <table>
+            <tr>
+              <th>Command</th>
+              <th>Description</th>
+              <th>Example</th>
+            </tr>
+            <tr>
+              <td><code>pwd</code></td>
+              <td>Print working directory</td>
+              <td><code>pwd</code></td>
+            </tr>
+            <tr>
+              <td><code>ls</code></td>
+              <td>List files and directories</td>
+              <td><code>ls</code></td>
+            </tr>
+            <tr>
+              <td><code>cd</code></td>
+              <td>Change directory</td>
+              <td><code>cd documents</code></td>
+            </tr>
+            <tr>
+              <td><code>mkdir</code></td>
+              <td>Create a new directory</td>
+              <td><code>mkdir projects</code></td>
+            </tr>
+            <tr>
+              <td><code>touch</code></td>
+              <td>Create a new file</td>
+              <td><code>touch file.txt</code></td>
+            </tr>
+            <tr>
+              <td><code>cat</code></td>
+              <td>View file contents</td>
+              <td><code>cat file.txt</code></td>
+            </tr>
+            <tr>
+              <td><code>echo</code></td>
+              <td>Print text</td>
+              <td><code>echo Hello</code></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const commandInput = document.getElementById("command-text");
+        const runButton = document.getElementById("run-command");
+        const outputArea = document.getElementById("output-area");
+        const hintArea = document.getElementById("hint-area");
+
+        // Simulated file system structure - simple flat object
+        const fileSystem = {
+          "/home/user": {
+            documents: {
+              type: "directory",
+              contents: {
+                "note.txt": {
+                  type: "file",
+                  content: "This is a sample text file.",
+                },
+                project: {
+                  type: "directory",
+                  contents: {
+                    "README.md": {
+                      type: "file",
+                      content: "Welcome to the project!",
+                    },
+                    "script.sh": {
+                      type: "file",
+                      content: '#!/bin/bash\necho "Hello, World!"',
+                    },
+                  },
+                },
+              },
+            },
+            downloads: {
+              type: "directory",
+              contents: {
+                "image.jpg": {
+                  type: "file",
+                  content: "[JPEG image data]",
+                },
+                "archive.zip": {
+                  type: "file",
+                  content: "[ZIP archive data]",
+                },
+              },
+            },
+            "hello.txt": {
+              type: "file",
+              content: "Hello, Unix world!",
+            },
+          },
+        };
+
+        // Current working directory path
+        let currentPath = ["/home", "user"];
+
+        // Get current directory object from path
+        function getCurrentDir() {
+          // The root of our file system
+          if (currentPath.length === 0) {
+            return fileSystem;
+          }
+
+          // Always start at /home/user which is our root
+          let current = fileSystem["/home/user"];
+
+          // Skip the first two elements (/home and user) as we've already accessed them
+          for (let i = 2; i < currentPath.length; i++) {
+            const part = currentPath[i];
+            if (current[part] && typeof current[part] === "object") {
+              current = current[part];
+            } else {
+              // If path doesn't exist, return the current level
+              console.warn(`Path part not found: ${part}`);
+              break;
+            }
+          }
+
+          return current;
+        }
+
+        // Process the command
+        function processCommand(cmd) {
+          const parts = cmd.trim().split(" ");
+          const command = parts[0].toLowerCase();
+          const args = parts.slice(1);
+
+          switch (command) {
+            case "ls":
+              // Get the current directory contents
+              const currentDir = getCurrentDir();
+              if (!currentDir) {
+                return "Error: Could not determine current directory";
+              }
+
+              // Get and display the directory contents
+              let result = "";
+
+              // Handle being at /home/user
+              if (currentPath.length === 2) {
+                for (const item in currentDir) {
+                  if (item === "type" || item === "contents") continue; // Skip metadata
+
+                  if (currentDir[item].type === "directory") {
+                    result += `<span class="directory">${item}/</span>  `;
+                  } else {
+                    result += `<span class="file">${item}</span>  `;
+                  }
+                }
+              }
+              // Handle being in subdirectories
+              else if (currentPath.length > 2 && currentDir.contents) {
+                for (const item in currentDir.contents) {
+                  if (currentDir.contents[item].type === "directory") {
+                    result += `<span class="directory">${item}/</span>  `;
+                  } else {
+                    result += `<span class="file">${item}</span>  `;
+                  }
+                }
+              }
+
+              return result || "Empty directory";
+
+            case "pwd":
+              return "/" + currentPath.join("/");
+
+            case "cd":
+              if (args.length === 0 || args[0] === "~") {
+                currentPath = ["/home", "user"];
+                return "Changed directory to: /home/user";
+              }
+
+              const target = args[0];
+
+              if (target === "..") {
+                if (currentPath.length > 2) {
+                  currentPath.pop();
+                  return "Changed directory to: /" + currentPath.join("/");
+                }
+                return "Already at home directory";
+              }
+
+              const currDir = getCurrentDir();
+
+              // Check if target exists and is a directory
+              // At /home/user level
+              if (currentPath.length === 2) {
+                if (currDir[target] && currDir[target].type === "directory") {
+                  currentPath.push(target);
+                  return "Changed directory to: /" + currentPath.join("/");
+                }
+              }
+              // In subdirectories
+              else if (currentPath.length > 2 && currDir.contents) {
+                if (
+                  currDir.contents[target] &&
+                  currDir.contents[target].type === "directory"
+                ) {
+                  currentPath.push(target);
+                  return "Changed directory to: /" + currentPath.join("/");
+                }
+              }
+
+              return `cd: ${target}: No such directory`;
+
+            case "mkdir":
+              if (args.length === 0) {
+                return "mkdir: missing operand";
+              }
+
+              const dirName = args[0];
+              const currentDirectory = getCurrentDir();
+
+              // At /home/user level
+              if (currentPath.length === 2) {
+                if (currentDirectory[dirName]) {
+                  return `mkdir: cannot create directory '${dirName}': File exists`;
+                } else {
+                  currentDirectory[dirName] = {
+                    type: "directory",
+                    contents: {},
+                  };
+                  return `Directory created: ${dirName}/`;
+                }
+              }
+              // In subdirectories
+              else if (currentPath.length > 2 && currentDirectory.contents) {
+                if (currentDirectory.contents[dirName]) {
+                  return `mkdir: cannot create directory '${dirName}': File exists`;
+                } else {
+                  currentDirectory.contents[dirName] = {
+                    type: "directory",
+                    contents: {},
+                  };
+                  return `Directory created: ${dirName}/`;
+                }
+              }
+
+              return "Error: Could not create directory";
+
+            case "touch":
+              if (args.length === 0) {
+                return "touch: missing file operand";
+              }
+
+              const fileName = args[0];
+              const touchDir = getCurrentDir();
+
+              // At /home/user level
+              if (currentPath.length === 2) {
+                if (touchDir[fileName]) {
+                  return `Updated timestamp for ${fileName}`;
+                } else {
+                  touchDir[fileName] = {
+                    type: "file",
+                    content: "",
+                  };
+                  return `File created: ${fileName}`;
+                }
+              }
+              // In subdirectories
+              else if (currentPath.length > 2 && touchDir.contents) {
+                if (touchDir.contents[fileName]) {
+                  return `Updated timestamp for ${fileName}`;
+                } else {
+                  touchDir.contents[fileName] = {
+                    type: "file",
+                    content: "",
+                  };
+                  return `File created: ${fileName}`;
+                }
+              }
+
+              return "Error: Could not create file";
+
+            case "cat":
+              if (args.length === 0) {
+                return "cat: missing file operand";
+              }
+
+              const file = args[0];
+              const catDir = getCurrentDir();
+
+              // At /home/user level
+              if (currentPath.length === 2) {
+                if (catDir[file] && catDir[file].type === "file") {
+                  return catDir[file].content || "(empty file)";
+                }
+              }
+              // In subdirectories
+              else if (currentPath.length > 2 && catDir.contents) {
+                if (
+                  catDir.contents[file] &&
+                  catDir.contents[file].type === "file"
+                ) {
+                  return catDir.contents[file].content || "(empty file)";
+                }
+              }
+
+              return `cat: ${file}: No such file`;
+
+            case "echo":
+              return args.join(" ");
+
+            case "clear":
+              outputArea.innerHTML = "";
+              return null;
+
+            case "help":
+              return `
+              Available commands:
+              - pwd - Print working directory
+              - ls - List files and directories
+              - cd [directory] - Change directory
+              - mkdir [directory] - Create a new directory
+              - touch [filename] - Create a new file
+              - cat [filename] - View file contents
+              - echo [text] - Print text
+              - clear - Clear output
+              - help - Show this help message
+            `;
+
+            default:
+              return `${command}: command not found`;
+          }
+        }
+
+        // Run command on button click
+        runButton.addEventListener("click", function () {
+          const command = commandInput.value.trim();
+          if (!command) return;
+
+          const output = processCommand(command);
+          if (output !== null) {
+            outputArea.innerHTML = `<div><span class="prompt">user@unix:~$</span> ${command}</div><div>${output}</div>`;
+          }
+
+          commandInput.value = "";
+
+          // Update hint based on command
+          updateHint(command);
+        });
+
+        // Run command on Enter key
+        commandInput.addEventListener("keydown", function (event) {
+          if (event.key === "Enter") {
+            runButton.click();
+          }
+        });
+
+        // Show contextual hints
+        function updateHint(command) {
+          const cmd = command.split(" ")[0].toLowerCase();
+
+          switch (cmd) {
+            case "ls":
+              hintArea.textContent =
+                'Tip: Try "cd" into one of the directories you see';
+              break;
+            case "cd":
+              hintArea.textContent =
+                'Tip: Use "ls" to see what\'s in this directory';
+              break;
+            case "mkdir":
+              hintArea.textContent =
+                'Tip: You can "cd" into your new directory';
+              break;
+            case "touch":
+              hintArea.textContent =
+                'Tip: Use "cat" to view the contents of a file';
+              break;
+            case "cat":
+              hintArea.textContent =
+                'Tip: Try creating a new file with "touch"';
+              break;
+            case "help":
+              hintArea.textContent = "Try experimenting with these commands!";
+              break;
+            default:
+              hintArea.textContent =
+                'Tip: Type "help" to see available commands';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
