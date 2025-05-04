@@ -51,9 +51,9 @@
           </div>
 
           <div class="command-hint" id="hint-area">
-            Tip: Start with simple commands like <code>ls</code>
-            <code>pwd</code> <code>echo Hello</code>
+            Tip: Start with simple commands like ls, pwd, echo Hello
           </div>
+          <button class="reset">Reset</button>
         </div>
 
         <div class="card">
@@ -105,14 +105,17 @@
     </div>
 
     <script>
+      // This is the JavaScript code to fix the reset button and prevent infinite directory navigation
+
       document.addEventListener("DOMContentLoaded", function () {
         const commandInput = document.getElementById("command-text");
         const runButton = document.getElementById("run-command");
         const outputArea = document.getElementById("output-area");
         const hintArea = document.getElementById("hint-area");
+        const resetButton = document.querySelector(".reset"); // Select the reset button
 
         // Simulated file system structure - simple flat object
-        const fileSystem = {
+        let fileSystem = {
           "/home/user": {
             documents: {
               type: "directory",
@@ -156,6 +159,9 @@
           },
         };
 
+        // Store the original file system for reset functionality
+        const originalFileSystem = JSON.parse(JSON.stringify(fileSystem));
+
         // Current working directory path
         let currentPath = ["/home", "user"];
 
@@ -172,11 +178,15 @@
           // Skip the first two elements (/home and user) as we've already accessed them
           for (let i = 2; i < currentPath.length; i++) {
             const part = currentPath[i];
-            if (current[part] && typeof current[part] === "object") {
-              current = current[part];
+            if (
+              current.contents &&
+              current.contents[part] &&
+              current.contents[part].type === "directory"
+            ) {
+              current = current.contents[part];
             } else {
-              // If path doesn't exist, return the current level
-              console.warn(`Path part not found: ${part}`);
+              // If path doesn't exist or is not a directory, return the current level
+              console.warn(`Path part not found or not a directory: ${part}`);
               break;
             }
           }
@@ -251,6 +261,10 @@
               // At /home/user level
               if (currentPath.length === 2) {
                 if (currDir[target] && currDir[target].type === "directory") {
+                  // Check if this would create an infinite loop
+                  if (target === currentPath[currentPath.length - 1]) {
+                    return `Cannot navigate to ${target}: Would create recursive path`;
+                  }
                   currentPath.push(target);
                   return "Changed directory to: /" + currentPath.join("/");
                 }
@@ -261,6 +275,10 @@
                   currDir.contents[target] &&
                   currDir.contents[target].type === "directory"
                 ) {
+                  // Check if this would create an infinite loop
+                  if (target === currentPath[currentPath.length - 1]) {
+                    return `Cannot navigate to ${target}: Would create recursive path`;
+                  }
                   currentPath.push(target);
                   return "Changed directory to: /" + currentPath.join("/");
                 }
@@ -373,17 +391,17 @@
 
             case "help":
               return `
-              Available commands:
-              - pwd - Print working directory
-              - ls - List files and directories
-              - cd [directory] - Change directory
-              - mkdir [directory] - Create a new directory
-              - touch [filename] - Create a new file
-              - cat [filename] - View file contents
-              - echo [text] - Print text
-              - clear - Clear output
-              - help - Show this help message
-            `;
+        Available commands:
+        - pwd - Print working directory
+        - ls - List files and directories
+        - cd [directory] - Change directory
+        - mkdir [directory] - Create a new directory
+        - touch [filename] - Create a new file
+        - cat [filename] - View file contents
+        - echo [text] - Print text
+        - clear - Clear output
+        - help - Show this help message
+      `;
 
             default:
               return `${command}: command not found`;
@@ -446,6 +464,25 @@
                 'Tip: Type "help" to see available commands';
           }
         }
+
+        // Implement reset button functionality
+        resetButton.addEventListener("click", function () {
+          // Reset file system to original state
+          fileSystem = JSON.parse(JSON.stringify(originalFileSystem));
+
+          // Reset current path to home
+          currentPath = ["/home", "user"];
+
+          // Clear command input
+          commandInput.value = "";
+
+          // Clear output area
+          outputArea.innerHTML = "# Terminal has been reset";
+
+          // Reset hint
+          hintArea.textContent =
+            "Tip: Start with simple commands like <code>ls</code> <code>pwd</code> <code>echo Hello</code>";
+        });
       });
     </script>
   </body>
