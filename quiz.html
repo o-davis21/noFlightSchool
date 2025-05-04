@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-flex">
+                <h1>noFlightSchool</h1>
+                <button class="nav-toggle" aria-label="toggle navigation">&#9776;</button>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">What is UNIX</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="#">Web Hosting</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Quizzes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+      <form action="placeholder" method="POST">
+
+        <fieldset>
+          <legend>Question 1: Where did UNIX originate?</legend>
+
+          <input type="radio" id="q1A" name="q1" value="q1A">
+          <label for="q1A">University of California, Berkeley</label><br>
+
+          <input type="radio" id="q1B" name="q1" value="q1B">
+          <label for="q1B">AT&T Bell Labs</label><br>
+
+          <input type="radio" id="q1C" name="q1" value="q1C">
+          <label for="q1C">RCA Laboratories</label><br>
+
+          <input type="radio" id="q1D" name="q1" value="q1D">
+          <label for="q1D">Sun Microsystems</label><br>
+        </fieldset>
+
+        <fieldset>
+          <legend>Question 2: What is the relationship between UNIX & Linux?</legend>
+
+          <input type="radio" id="q2A" name="q2" value="q2A">
+          <label for="q2A">Linux is the kernel that UNIX uses</label><br>
+
+          <input type="radio" id="q2B" name="q2" value="q2B">
+          <label for="q2B">Linux is just another name for UNIX</label><br>
+
+          <input type="radio" id="q2C" name="q2" value="q2C">
+          <label for="q2C">They are unrelated</label><br>
+
+          <input type="radio" id="q2D" name="q2" value="q2D">
+          <label for="q2D">Linux is considered a "UNIX-like"</label><br>
+        </fieldset>
+
+        <fieldset>
+          <legend>Question 3: What does the command cd do?</legend>
+
+          <input type="radio" id="q3A" name="q3" value="q3A">
+          <label for="q3A">Changes what directory you're in</label><br>
+
+          <input type="radio" id="q3B" name="q3" value="q3B">
+          <label for="q3B">Lists the files in the current directory</label><br>
+
+          <input type="radio" id="q3C" name="q3" value="q3C">
+          <label for="q3C">Creates a new directory</label><br>
+
+          <input type="radio" id="q3D" name="q3" value="q3D">
+          <label for="q3D">Writes data to the computer's optical drive</label><br>
+        </fieldset>
+
+        <fieldset>
+          <legend>Question 4: What does the /etc/ directory contain?</legend>
+
+          <input type="radio" id="q4A" name="q4" value="q4A">
+          <label for="q4A">Miscellaneous files</label><br>
+
+          <input type="radio" id="q4B" name="q4" value="q4B">
+          <label for="q4B">System configuration files</label><br>
+
+          <input type="radio" id="q4C" name="q4" value="q4C">
+          <label for="q4C">Data that can change</label><br>
+
+          <input type="radio" id="q4D" name="q4" value="q4D">
+          <label for="q4D">Downloaded software</label><br>
+        </fieldset>
+
+        <fieldset>
+          <legend>Question 5: Which command line based text editor is considered the most beginner friendly?</legend>
+
+          <input type="radio" id="q5A" name="q5" value="q5A">
+          <label for="q5A">vi</label><br>
+
+          <input type="radio" id="q5B" name="q5" value="q5B">
+          <label for="q5B">emacs</label><br>
+
+          <input type="radio" id="q5C" name="q5" value="q5C">
+          <label for="q5C">nano</label><br>
+
+          <input type="radio" id="q5D" name="q5" value="q5D">
+          <label for="q5D">vim</label><br>
+        </fieldset>
+
+        <fieldset>
+          <legend>Question 6: What number system is used for UNIX permissions, such as with SFTP file uploads?</legend>
+
+          <input type="radio" id="q6A" name="q6" value="q6A">
+          <label for="q6A">Octal or Base 8</label><br>
+
+          <input type="radio" id="q6B" name="q6" value="q6B">
+          <label for="q6B">Hexadecimal or Base 16</label><br>
+
+          <input type="radio" id="q6C" name="q6" value="q6C">
+          <label for="q6C">Binary or Base 2</label><br>
+
+          <input type="radio" id="q6D" name="q6" value="q6D">
+          <label for="q6D">Decimal or Base 10</label><br>
+        </fieldset>
+
+        <br>
+        <input type="submit" value="Submit">
+      </form>
+    </main>
+
+    <footer>
+      <div class="container">
+          <p>© 2025 ISTE 240.04 Group 2. All rights reserved.</p>
+      </div>
+  </footer>
+
+  <script>
+      const navToggle = document.querySelector('.nav-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      navToggle.addEventListener('click', () => {
+          navLinks.classList.toggle('show');
+      });
+  </script>
+</body>
+</html>
