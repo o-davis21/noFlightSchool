@@ -24,12 +24,12 @@
             <li><a href="tutorial.html">Tutorials</a></li>
             <li><a href="quiz.html">Quizzes</a></li>
             <li><a href="leaderboard.html">Leaderboard</a></li>
-        </ul>
+          </ul>
         </nav>
-    </div>
-</header>
+      </div>
+    </header>
 
-  <!--
+    <!--
         <?php
             $path = "./";
             $page = "Tutorial";
@@ -113,8 +113,6 @@
     </div>
 
     <script>
-      // This is the JavaScript code to fix the reset button and prevent infinite directory navigation
-
       document.addEventListener("DOMContentLoaded", function () {
         const commandInput = document.getElementById("command-text");
         const runButton = document.getElementById("run-command");
@@ -175,26 +173,21 @@
 
         // Get current directory object from path
         function getCurrentDir() {
-          // The root of our file system
-          if (currentPath.length === 0) {
-            return fileSystem;
-          }
-
           // Always start at /home/user which is our root
           let current = fileSystem["/home/user"];
 
-          // Skip the first two elements (/home and user) as we've already accessed them
+          if (currentPath.length <= 2) {
+            return current; // We're at /home/user level
+          }
+
+          // Navigate through the path
           for (let i = 2; i < currentPath.length; i++) {
             const part = currentPath[i];
-            if (
-              current.contents &&
-              current.contents[part] &&
-              current.contents[part].type === "directory"
-            ) {
+            if (current.contents && current.contents[part]) {
               current = current.contents[part];
             } else {
-              // If path doesn't exist or is not a directory, return the current level
-              console.warn(`Path part not found or not a directory: ${part}`);
+              // If path doesn't exist, return the current level
+              console.warn(`Path part not found: ${part}`);
               break;
             }
           }
@@ -315,7 +308,11 @@
                 }
               }
               // In subdirectories
-              else if (currentPath.length > 2 && currentDirectory.contents) {
+              else if (currentPath.length > 2) {
+                if (!currentDirectory.contents) {
+                  currentDirectory.contents = {};
+                }
+
                 if (currentDirectory.contents[dirName]) {
                   return `mkdir: cannot create directory '${dirName}': File exists`;
                 } else {
