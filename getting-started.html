@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Getting Started with UNIX</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-flex">
+                <h1>noFlightSchool</h1>
+                <button class="nav-toggle" aria-label="toggle navigation">&#9776;</button>
+            </div>
+            <nav class="nav">
+                <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">What is UNIX</a></li>
+                <li><a href="getting-started.html">Getting Started</a></li>
+                <li><a href="#">Web Hosting</a></li>
+                <li><a href="#">Tutorials</a></li>
+                <li><a href="#">Quizzes</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h2>Getting Started with UNIX</h2>
+        <p>UNIX is built around a simple yet powerful design philosophy: <strong>“Everything is a file.”</strong> This allows UNIX to be highly adaptable across different computing environments.</p>
+
+        <h3>Basic UNIX Commands</h3>
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                    <th>Command</th>
+                    <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ls</td><td>Lists files in a directory</td></tr>
+                    <tr><td>cd</td><td>Changes directory</td></tr>
+                    <tr><td>mkdir</td><td>Creates a new directory</td></tr>
+                    <tr><td>rm</td><td>Deletes a file or directory</td></tr>
+                    <tr><td>cp</td><td>Copies files</td></tr>
+                    <tr><td>mv</td><td>Moves or renames files</td></tr>
+                    <tr><td>chmod</td><td>Changes file permissions</td></tr>
+                    <tr><td>grep</td><td>Searches text within files</td></tr>
+                    <tr><td>ps</td><td>Displays active processes</td></tr>
+                    <tr><td>kill</td><td>Terminates a process</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>UNIX File System & Navigation</h3>
+        <p>The UNIX file structure is hierarchical, starting from the root directory <code>/</code>. Learn how to navigate and manage files efficiently.</p>
+
+        <div class="card">
+            <h4>Key Directories in UNIX:</h4>
+            <ul>
+            <li><code>/</code> - Root directory</li>
+            <li><code>/bin</code> - Essential user binaries</li>
+            <li><code>/etc</code> - System configuration files</li>
+            <li><code>/home</code> - User home directories</li>
+            <li><code>/var</code> - Variable data (logs, databases)</li>
+            <li><code>/usr</code> - User-related programs and libraries</li>
+            </ul>
+        </div>
+
+        <h3>Editing Text Files</h3>
+        <p>UNIX provides several powerful tools to edit text files directly from the terminal. Here are the most commonly used editors:</p>
+
+        <div class="card">
+            <h4>1. <code>nano</code> (Beginner-Friendly)</h4>
+            <p><code>nano</code> is a straightforward text editor ideal for beginners. It displays commands at the bottom of the screen and is easy to use.</p>
+            <p><strong>Example:</strong> <code>nano myfile.txt</code></p>
+            <p>Use <code>Ctrl + O</code> to save and <code>Ctrl + X</code> to exit.</p>
+        </div>
+
+        <div class="card">
+            <h4>2. <code>vi</code> or <code>vim</code> (Advanced)</h4>
+            <p><code>vi</code> is a powerful editor built into most UNIX systems. <code>vim</code> is an improved version with extended features. These editors have two modes: normal mode and insert mode.</p>
+            <p><strong>Example:</strong> <code>vi myfile.txt</code></p>
+            <ul>
+                <li><code>i</code> – Enter insert mode</li>
+                <li><code>Esc</code> – Return to command mode</li>
+                <li><code>:w</code> – Save changes</li>
+                <li><code>:q</code> – Quit</li>
+                <li><code>:wq</code> – Save and quit</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h4>3. <code>cat</code> and <code>echo</code> (Quick Edits)</h4>
+            <p>For very small edits, <code>cat</code> and <code>echo</code> can be used to create or append to files directly.</p>
+            <p><strong>Create a file:</strong> <code>echo "Hello, UNIX!" > hello.txt</code></p>
+            <p><strong>Append to a file:</strong> <code>echo "Another line" >> hello.txt</code></p>
+            <p><strong>View a file:</strong> <code>cat hello.txt</code></p>
+        </div>
+
+        <p>Each tool has its strengths — start with <code>nano</code> and gradually explore <code>vim</code> as you become more comfortable with UNIX.</p>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 ISTE 240.04 Group 2. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
