@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>noFlightSchool</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>noFlightSchool</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
     <header>
         <div class="container">
             <div class="header-flex">
@@ -19,67 +19,68 @@
                 <li><a href="what-is-unix.html">What is UNIX</a></li>
                 <li><a href="getting-started.html">Getting Started</a></li>
                 <li><a href="web-hosting.html">Web Hosting</a></li>
-                <li><a href="#">Tutorials</a></li>
-                <li><a href="#">Quizzes</a></li>
-                <li><a href="#">Leaderboard</a></li>
+                <li><a href="tutorial.html">Tutorials</a></li>
+                <li><a href="quiz.html">Quizzes</a></li>
+                <li><a href="leaderboard.html">Leaderboard</a></li>
             </ul>
             </nav>
         </div>
     </header>
 
-    <main>
-      <section class="hero">
-        <div class="hero-text">
-          <h2>Welcome to noFlightSchool</h2>
-          <button onclick="location.href='getting-started.html'">
-            Get Started
-          </button>
-        </div>
-        <div class="hero-img">
-          <img src="images/penguin.png" alt="Terminal Display" />
-        </div>
-      </section>
 
-      <section class="info-cards">
-        <div class="card">
-          <h3>What is UNIX?</h3>
-          <p>
-            Learn about the origins, architecture, and long-standing influence
-            of UNIX on modern systems like Linux and macOS.
-          </p>
-          <button onclick="location.href='what-is-unix.html'">Read More</button>
-        </div>
-        <div class="card">
-          <h3>Getting Started</h3>
-          <p>
-            Master essential UNIX commands and understand how to navigate its
-            powerful file system with ease.
-          </p>
-          <button onclick="location.href='getting-started.html'">
-            Read More
-          </button>
-        </div>
-        <div class="card">
-          <h3>Web Hosting with UNIX</h3>
-          <p>
-            Discover how UNIX powers the web, and learn to use SSH, SFTP, and
-            file permissions to manage a server.
-          </p>
-          <button onclick="location.href='web-hosting.html'">Read More</button>
-        </div>
-      </section>
+    <!--
+        <?php
+            $path = "./";
+            $page = "noFlightSchool";
+            include($path . "assets/header.php");
+        ?>
+    -->
+    <main>
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Welcome to noFlightSchool</h2>
+                <button onclick="location.href='getting-started.html'">Get Started</button>
+            </div>
+            <div class="hero-img">
+                <img src="images/penguin.png" alt="Terminal Display" />
+            </div>
+        </section>
+
+        <section class="info-cards">
+            <div class="card">
+                <h3>What is UNIX?</h3>
+                <p>Learn about the origins, architecture, and long-standing influence of UNIX on modern systems like Linux and macOS.</p>
+                <button onclick="location.href='what-is-unix.html'">Read More</button>
+            </div>
+            <div class="card">
+                <h3>Getting Started</h3>
+                <p>Master essential UNIX commands and understand how to navigate its powerful file system with ease.</p>
+                <button onclick="location.href='getting-started.html'">Read More</button>
+            </div>
+            <div class="card">
+                <h3>Web Hosting with UNIX</h3>
+                <p>Discover how UNIX powers the web, and learn to use SSH, SFTP, and file permissions to manage a server.</p>
+                <button onclick="location.href='web-hosting.html'">Read More</button>
+            </div>
+        </section>
     </main>
 
+
+    <!--
+        <?php
+            include("assets/footer.php");
+        ?>
+    -->
     <footer>
-      <p>© 2025 ISTE 240.04 Group 2. All rights reserved.</p>
+        <p>© 2025 ISTE 240.04 Group 2. All rights reserved.</p>
     </footer>
 
     <script>
-      const navToggle = document.querySelector(".nav-toggle");
-      const navLinks = document.querySelector(".nav-links");
-      navToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("show");
-      });
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('show');
+        });
     </script>
-  </body>
+</body>
 </html>
