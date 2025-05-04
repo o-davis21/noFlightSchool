@@ -14,45 +14,46 @@
                 <button class="nav-toggle" aria-label="toggle navigation">&#9776;</button>
             </div>
             <nav class="nav">
-                <ul class="nav-links">
+            <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="#">What is UNIX</a></li>
+                <li><a href="what-is-unix.html">What is UNIX</a></li>
                 <li><a href="getting-started.html">Getting Started</a></li>
-                <li><a href="#">Web Hosting</a></li>
+                <li><a href="web-hosting.html">Web Hosting</a></li>
                 <li><a href="#">Tutorials</a></li>
                 <li><a href="#">Quizzes</a></li>
-                </ul>
+                <li><a href="#">Leaderboard</a></li>
+            </ul>
             </nav>
         </div>
     </header>
 
     <main>
         <section class="hero">
-        <div class="hero-text">
-            <h2>Welcome to noFlightSchool</h2>
-            <button>Get Started</button>
-        </div>
-        <div class="hero-img">
-            <img src="images/penguin.png" alt="Terminal Display" />
-        </div>
+            <div class="hero-text">
+                <h2>Welcome to noFlightSchool</h2>
+                <button onclick="location.href='getting-started.html'">Get Started</button>
+            </div>
+            <div class="hero-img">
+                <img src="images/penguin.png" alt="Terminal Display" />
+            </div>
         </section>
 
         <section class="info-cards">
-        <div class="card">
-            <h3>What is UNIX?</h3>
-            <p>Brief description of UNIX</p>
-            <button>Read More</button>
-        </div>
-        <div class="card">
-            <h3>Why does UNIX Matter?</h3>
-            <p>Brief explanation of why UNIX is important.</p>
-            <button>Read More</button>
-        </div>
-        <div class="card">
-            <h3>How will this UNIX Guide be helpful?</h3>
-            <p>Brief explanation of how this guide will be of assistance.</p>
-            <button>Read More</button>
-        </div>
+            <div class="card">
+                <h3>What is UNIX?</h3>
+                <p>Learn about the origins, architecture, and long-standing influence of UNIX on modern systems like Linux and macOS.</p>
+                <button onclick="location.href='what-is-unix.html'">Read More</button>
+            </div>
+            <div class="card">
+                <h3>Getting Started</h3>
+                <p>Master essential UNIX commands and understand how to navigate its powerful file system with ease.</p>
+                <button onclick="location.href='getting-started.html'">Read More</button>
+            </div>
+            <div class="card">
+                <h3>Web Hosting with UNIX</h3>
+                <p>Discover how UNIX powers the web, and learn to use SSH, SFTP, and file permissions to manage a server.</p>
+                <button onclick="location.href='web-hosting.html'">Read More</button>
+            </div>
         </section>
     </main>
 
@@ -63,11 +64,9 @@
     <script>
         const navToggle = document.querySelector('.nav-toggle');
         const navLinks = document.querySelector('.nav-links');
-      
         navToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('show');
+            navLinks.classList.toggle('show');
         });
-      </script>      
-
+    </script>
 </body>
 </html>

@@ -116,9 +116,10 @@ th, td {
     padding: 0.5rem;
     text-align: left;
 }
-
+  
 th {
     background-color: #001c26;
+    color: #00ffcc;
 }
 
 ul {
@@ -128,7 +129,26 @@ ul {
 ul li {
     margin-bottom: 0.5rem;
 }
+
+pre, code {
+    font-family: 'Courier New', monospace;
+    background-color: #001c26;
+    color: #00ffcc;
+    padding: 0.5rem;
+    display: block;
+    overflow-x: auto;
+    margin-top: 0.5rem;
+    border: 1px solid #00ffcc;
+}
   
+
+p code {
+    display: inline;
+    padding: 0.2rem 0.4rem;
+    background-color: #001c26;
+    border: 1px solid #00ffcc;
+}
+
 
 footer {
     text-align: center;
