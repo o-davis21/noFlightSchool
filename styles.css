@@ -1,294 +1,293 @@
 @font-face {
-    font-family: intel;
-    src: url(IntelOneMono-Regular.woff)
+  font-family: intel;
+  src: url(IntelOneMono-Regular.woff);
 }
 
 body {
-    background-color: #0e1e2a;
-    color: #00ffcc;
-    margin: 0;
-    padding: 0;
-    font-family: intel;
+  background-color: #0e1e2a;
+  color: #00ffcc;
+  margin: 0;
+  padding: 0;
+  font-family: intel;
 }
-  
+
 a {
-    color: #00ffcc;
-    text-decoration: none;
+  color: #00ffcc;
+  text-decoration: none;
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
 header {
-    border-bottom: 2px solid #00ffcc;
-    padding: 1rem 0;
+  border-bottom: 2px solid #00ffcc;
+  padding: 1rem 0;
 }
-  
+
 .header-flex {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-  
 
 header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
 }
 
 nav li::after {
-    content: " /";
-    color: #00ffcc;
-    padding-left: 0.5rem;
+  content: " /";
+  color: #00ffcc;
+  padding-left: 0.5rem;
 }
 
 nav li:last-child::after {
-    content: "";
+  content: "";
 }
 
 .hero {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem;
-    border: 2px solid #00ffcc;
-    margin: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  border: 2px solid #00ffcc;
+  margin: 2rem;
 }
 
 .hero-text h2 {
-    margin-bottom: 1rem;
+  margin-bottom: 1rem;
 }
 
 .hero button {
-    background-color: transparent;
-    color: #00ffcc;
-    border: 2px solid #00ffcc;
-    padding: 0.5rem 1rem;
-    font-family: inherit;
-    cursor: pointer;
+  background-color: transparent;
+  color: #00ffcc;
+  border: 2px solid #00ffcc;
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  cursor: pointer;
 }
 
 .hero-img img {
-    width: 300px;
-    border: 2px solid #00ffcc;
+  width: 300px;
+  border: 2px solid #00ffcc;
 }
 
 .info-cards {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 2rem;
 }
 
 .card {
-    flex: 1;
-    border: 2px solid #00ffcc;
-    padding: 1rem;
+  flex: 1;
+  border: 2px solid #00ffcc;
+  padding: 1rem;
 }
 
 .card button {
-    margin-top: 1rem;
-    background-color: transparent;
-    color: #00ffcc;
-    border: 2px solid #00ffcc;
-    padding: 0.3rem 0.8rem;
-    cursor: pointer;
+  margin-top: 1rem;
+  background-color: transparent;
+  color: #00ffcc;
+  border: 2px solid #00ffcc;
+  padding: 0.3rem 0.8rem;
+  cursor: pointer;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
 }
-  
-th, td {
-    border: 1px solid #00ffcc;
-    padding: 0.5rem;
-    text-align: left;
+
+th,
+td {
+  border: 1px solid #00ffcc;
+  padding: 0.5rem;
+  text-align: left;
 }
-  
+
 th {
-    background-color: #001c26;
-    color: #00ffcc;
+  background-color: #001c26;
+  color: #00ffcc;
 }
 
 ul {
-    padding-left: 1.5rem;
+  padding-left: 1.5rem;
 }
 
 ul li {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
-pre, code {
-    font-family: 'Courier New', monospace;
-    background-color: #001c26;
-    color: #00ffcc;
-    padding: 0.5rem;
-    display: block;
-    overflow-x: auto;
-    margin-top: 0.5rem;
-    border: 1px solid #00ffcc;
+pre,
+code {
+  font-family: "Courier New", monospace;
+  background-color: #001c26;
+  color: #00ffcc;
+  padding: 0.5rem;
+  display: block;
+  overflow-x: auto;
+  margin-top: 0.5rem;
+  border: 1px solid #00ffcc;
 }
-  
 
 p code {
-    display: inline;
-    padding: 0.2rem 0.4rem;
-    background-color: #001c26;
-    border: 1px solid #00ffcc;
+  display: inline;
+  padding: 0.2rem 0.4rem;
+  background-color: #001c26;
+  border: 1px solid #00ffcc;
 }
 
-
 footer {
-    text-align: center;
-    padding: 1rem;
-    border-top: 2px solid #00ffcc;
-    margin-top: 2rem;
-    font-size: 0.85rem;
+  text-align: center;
+  padding: 1rem;
+  border-top: 2px solid #00ffcc;
+  margin-top: 2rem;
+  font-size: 0.85rem;
 }
 
 /* Mobile Nav Toggle */
 .nav-toggle {
-    display: none;
-    font-size: 2rem;
-    background: none;
-    color: #00ffcc;
-    border: none;
-    cursor: pointer;
+  display: none;
+  font-size: 2rem;
+  background: none;
+  color: #00ffcc;
+  border: none;
+  cursor: pointer;
 }
 
 /* Additional styles specific to the command practice box */
 .command-box {
-    border: 2px solid #00ffcc;
-    padding: 1rem;
-    margin: 1rem 0;
-    background-color: #001c26;
-  }
-  
-  .command-input {
-    display: flex;
-    margin-bottom: 1rem;
-  }
-  
-  .command-input input {
-    flex-grow: 1;
-    background-color: #0e1e2a;
-    border: 2px solid #00ffcc;
-    color: #00ffcc;
-    font-family: intel;
-    padding: 0.5rem;
-    outline: none;
-  }
-  
-  .command-button {
-    background-color: transparent;
-    color: #00ffcc;
-    border: 2px solid #00ffcc;
-    padding: 0.5rem 1rem;
-    font-family: intel;
-    cursor: pointer;
-    margin-left: 0.5rem;
-  }
-  
-  .command-output {
-    background-color: #0e1e2a;
-    border: 2px solid #00ffcc;
-    color: #00ffcc;
-    font-family: intel;
-    padding: 1rem;
-    min-height: 100px;
-    margin-bottom: 1rem;
-    white-space: pre-wrap;
-  }
-  
-  .command-hint {
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-    color: #00ffcc;
-  }
-  
-  .directory {
-    color: #00ccff;
-  }
-  
-  .file {
-    color: #ffffff;
-  }
-  
-  .prompt {
-    color: #00ffcc;
-    margin-right: 5px;
-  }
-  
-  code {
-    background-color: #001c26;
-    padding: 0.1rem 0.3rem;
-    border-radius: 3px;
-  }
-  
+  border: 2px solid #00ffcc;
+  padding: 1rem;
+  margin: 1rem 0;
+  background-color: #001c26;
+}
+
+.command-input {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.command-input input {
+  flex-grow: 1;
+  background-color: #0e1e2a;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  font-family: intel;
+  padding: 0.5rem;
+  outline: none;
+}
+
+.command-button {
+  background-color: transparent;
+  color: #00ffcc;
+  border: 2px solid #00ffcc;
+  padding: 0.5rem 1rem;
+  font-family: intel;
+  cursor: pointer;
+  margin-left: 0.5rem;
+}
+
+.command-output {
+  background-color: #0e1e2a;
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  font-family: intel;
+  padding: 1rem;
+  min-height: 100px;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+}
+
+.command-hint {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #00ffcc;
+}
+
+.directory {
+  color: #00ccff;
+}
+
+.file {
+  color: #ffffff;
+}
+
+.prompt {
+  color: #00ffcc;
+  margin-right: 5px;
+}
+
+code {
+  background-color: #001c26;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 1rem;
-        gap: 1rem;
-    }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
 
-    .nav-links.show {
-        display: flex;
-    }
+  .nav-links.show {
+    display: flex;
+  }
 
-    .nav-toggle {
-        display: block;
-    }
+  .nav-toggle {
+    display: block;
+  }
 
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
-    nav li::after {
-        content: "";
-    }
+  nav li::after {
+    content: "";
+  }
 
-    .hero {
-        flex-direction: column;
-        text-align: center;
-    }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
 
-    .hero-img img {
-        width: 80%;
-        margin-top: 1rem;
-    }
+  .hero-img img {
+    width: 80%;
+    margin-top: 1rem;
+  }
 
-    .info-cards {
-        flex-direction: column;
-        padding: 1rem;
-    }
+  .info-cards {
+    flex-direction: column;
+    padding: 1rem;
+  }
 
-    .card {
-        margin-bottom: 1rem;
-    }
+  .card {
+    margin-bottom: 1rem;
+  }
 
-    header h1 {
-        font-size: 1.5rem;
-    }
+  header h1 {
+    font-size: 1.5rem;
+  }
 
-    .hero button,
-    .card button {
-        width: 100%;
-    }
+  .hero button,
+  .card button {
+    width: 100%;
+  }
 }
