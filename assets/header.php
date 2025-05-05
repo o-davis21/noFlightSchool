@@ -15,13 +15,13 @@
             </div>
             <nav class="nav">
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="what-is-unix.html">What is UNIX</a></li>
-                <li><a href="getting-started.html">Getting Started</a></li>
-                <li><a href="web-hosting.html">Web Hosting</a></li>
-                <li><a href="#">Tutorials</a></li>
-                <li><a href="#">Quizzes</a></li>
-                <li><a href="#">Leaderboard</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="what-is-unix.php">What is UNIX</a></li>
+                <li><a href="getting-started.php">Getting Started</a></li>
+                <li><a href="web-hosting.php">Web Hosting</a></li>
+                <li><a href="tutorial.php">Tutorials</a></li>
+                <li><a href="quiz.php">Quizzes</a></li>
+                <li><a href="leaderboard.php">Leaderboard</a></li>
             </ul>
             </nav>
         </div>
